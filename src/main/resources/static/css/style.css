@@ -1,0 +1,421 @@
+/* =====================================================
+   GLOBAL THEME VARIABLES — WARM EARTH THEME
+===================================================== */
+
+/* ---------- LIGHT THEME (NO BLUE, NO WHITE) ---------- */
+:root {
+    --bg-main: #efe6dc;          /* Cream beige background */
+    --bg-card: #f6efe8;          /* Light coffee card */
+    --text-main: #3a2e2a;        /* Dark brown text */
+    --text-muted: #6b5b4f;       /* Soft brown */
+    --border-color: #d6c6b8;
+
+    --primary: #7a4a2e;          /* Brown primary */
+    --primary-hover: #603725;
+    --success: #6b7a3a;          /* Olive green */
+    --danger: #8a3f3f;           /* Brick red */
+}
+
+/* ---------- DARK THEME ---------- */
+
+/* =====================================================
+   BASE STYLES
+===================================================== */
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* =====================================================
+   CONTAINERS & CARDS
+===================================================== */
+
+.container {
+    max-width: 1000px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+
+/* =====================================================
+   TABLES
+===================================================== */
+
+table {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+table th {
+    background-color: #eadfd4;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+}
+
+table td {
+    border-top: 1px solid var(--border-color);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 6px 14px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border: none;
+    color: #fdf8f3;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-success {
+    background-color: var(--success);
+    border: none;
+    color: #fdf8f3;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    border: none;
+    color: #fdf8f3;
+}
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+input, select {
+    background-color: #f3eadd;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+label {
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* =====================================================
+   LIST GROUP (DASHBOARDS)
+===================================================== */
+
+.list-group-item {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+.list-group-item:hover {
+    background-color: #eadfd4;
+}
+
+/* =====================================================
+   STATUS COLORS
+===================================================== */
+
+.status-APPLIED {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.status-SELECTED {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.status-REJECTED {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+/* =====================================================
+   THEME TOGGLE BUTTON
+===================================================== */
+
+
+/* =====================================================
+   NAVBAR (REMOVE BLUE COMPLETELY)
+===================================================== */
+
+.navbar {
+    background-color: var(--primary) !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #fdf8f3 !important;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #e8d6c3 !important;
+}
+
+/* Dark mode navbar */
+
+/* =====================================================
+   FORCE OVERRIDE BOOTSTRAP BLUE (FINAL FIX)
+===================================================== */
+
+/* Override ALL Bootstrap primary backgrounds */
+.bg-primary {
+    background-color: #7a4a2e !important; /* brown */
+}
+
+/* Navbar specific override */
+.navbar.bg-primary {
+    background-color: #7a4a2e !important;
+}
+
+/* Navbar text */
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: #fdf8f3 !important;
+}
+
+
+
+
+/* =====================================================
+   CUSTOM HEADER (REPLACES BOOTSTRAP NAVBAR)
+===================================================== */
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background-color: var(--primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fdf8f3;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav .nav-link {
+    color: #fdf8f3;
+    font-weight: 500;
+}
+
+.header-nav .nav-link:hover {
+    color: #e8d6c3;
+}
+
+.header-nav .logout {
+    opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 576px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    /* Cards */
+    .card {
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    /* Forms */
+    input, select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Tables → horizontal scroll */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Dashboard list items */
+    .list-group-item {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Theme toggle */
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+
+
+
+@media (min-width: 577px) and (max-width: 992px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    /* Cards */
+    .card {
+        margin-bottom: 18px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 8px 16px;
+    }
+
+    /* Forms */
+    input, select {
+        font-size: 15px;
+    }
+
+    /* Tables */
+    table {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 993px) {
+
+    .container {
+        max-width: 1100px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* =====================================================
+   LOGIN PAGE BACKGROUND IMAGE (TRANSPARENT)
+===================================================== */
+
+.login-page {
+    min-height: 100vh;
+    background-image:
+            linear-gradient(
+                    rgba(239, 230, 220, 0.85),
+                    rgba(239, 230, 220, 0.85)
+            ),
+            url("/images/login-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

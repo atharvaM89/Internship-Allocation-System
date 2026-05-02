@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Applicants</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="container mt-4">
+
+<h2 th:text="'Applicants for ' + ${internship.title}"></h2>
+
+<div class="table-responsive mt-4">
+    <table class="table table-bordered align-middle">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>CGPA</th>
+            <th>Branch</th>
+            <th>Skills</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="a : ${applications}">
+            <td th:text="${a.student.name}"></td>
+            <td th:text="${a.student.email}"></td>
+            <td th:text="${a.student.cgpa}"></td>
+            <td th:text="${a.student.branch}"></td>
+            <td th:text="${a.student.skills}"></td>
+
+            <td>
+                <span th:text="${a.status}"
+                      th:class="'status-' + ${a.status}">
+                </span>
+            </td>
+
+            <td th:text="${a.score}"></td>
+
+            <!-- ACTION BUTTONS -->
+            <td>
+                <!-- Show buttons ONLY if still APPLIED -->
+                <div th:if="${a.status.name() == 'APPLIED'}">
+
+                    <form th:action="@{/company/applications/{id}/approve(id=${a.id})}"
+                          method="post"
+                          class="d-inline">
+                        <button type="submit"
+                                class="btn btn-success btn-sm">
+                            Approve
+                        </button>
+                    </form>
+
+                    <form th:action="@{/company/applications/{id}/reject(id=${a.id})}"
+                          method="post"
+                          class="d-inline ms-1">
+                        <button type="submit"
+                                class="btn btn-danger btn-sm">
+                            Reject
+                        </button>
+                    </form>
+
+                </div>
+
+                <!-- If already decided -->
+                <div th:if="${a.status.name() != 'APPLIED'}">
+                    <span class="text-muted">Decision Taken</span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="/company/dashboard" class="btn btn-secondary mt-3">Back</a>
+
+</body>
+</html>

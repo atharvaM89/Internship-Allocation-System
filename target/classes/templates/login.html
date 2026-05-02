@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h4>Internship Allocation System</h4>
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- LOGIN FORM -->
+                        <form method="post" action="/login">
+                            <div class="mb-3">
+                                <label>Email</label>
+                                <input name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control" required>
+                            </div>
+
+                            <button class="btn btn-primary w-100 mb-2">
+                                Login
+                            </button>
+                        </form>
+
+                        <p class="text-danger text-center mt-2" th:text="${error}"></p>
+
+                        <hr>
+
+                        <!-- SIGN UP OPTIONS -->
+                        <div class="text-center">
+                            <p class="mb-2 fw-semibold">New here? Sign up as</p>
+
+                            <div class="d-grid gap-2">
+                                <a href="/signup/student" class="btn btn-outline-secondary">
+                                    🎓 Student
+                                </a>
+                                <a href="/signup/company" class="btn btn-outline-secondary">
+                                    🏢 Company
+                                </a>
+                                <a href="/signup/admin" class="btn btn-outline-secondary">
+                                    🛡️ Admin
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

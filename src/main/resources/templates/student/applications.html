@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Applications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container mt-4">
+
+<h3>My Applications</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Internship</th>
+        <th>Company</th>
+        <th>Status</th>
+        <th>Score</th>
+    </tr>
+
+    <tr th:each="a : ${applications}">
+        <td th:text="${a.internship.title}"></td>
+        <td th:text="${a.internship.company.name}"></td>
+        <td th:text="${a.status}"></td>
+        <td th:text="${a.score}"></td>
+    </tr>
+</table>
+
+<a href="/student/dashboard">Back</a>
+
+</body>
+</html>

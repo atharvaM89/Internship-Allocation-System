@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Internships</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body class="container mt-4">
+
+
+<h3>Available Internships</h3>
+
+<form method="get" action="/internships" class="mb-3">
+    <input name="skill" class="form-control"
+           placeholder="Search by skill (Java, Spring, Python)">
+</form>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Domain</th>
+        <th>Min CGPA</th>
+        <th>Slots</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="i : ${internships}">
+        <td th:text="${i.title}"></td>
+
+        <td th:text="${i.company != null ? i.company.name : 'N/A'}"></td>
+
+        <td th:text="${i.domain != null ? i.domain.name : 'N/A'}"></td>
+
+        <td th:text="${i.minCgpa}"></td>
+
+        <td th:text="${i.availableSlots}"></td>
+
+        <td>
+            <a th:href="@{/internships/{id}(id=${i.id})}"
+               class="btn btn-sm btn-primary">
+                View
+            </a>
+        </td>
+    </tr>
+</table>
+
+<a href="/student/dashboard" class="btn btn-secondary mt-3">Back</a>
+
+</body>
+</html>

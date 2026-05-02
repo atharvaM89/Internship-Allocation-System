@@ -1,0 +1,29 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Learning Roadmap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body class="container mt-4">
+
+    <h3 th:text="${internship.title} + ' – Learning Roadmap'"></h3>
+
+    <ul class="list-group mt-3">
+        <li class="list-group-item"
+            th:each="step : ${roadmap}">
+            <b th:text="'Step ' + ${step.stepOrder} + ': ' + ${step.title}"></b>
+            <p th:text="${step.description}"></p>
+        </li>
+    </ul>
+
+    <form method="post" action="/applications/apply" class="mt-4">
+        <input type="hidden" name="internshipId" th:value="${internship.id}">
+        <button class="btn btn-success">
+            I Understand the Roadmap – Apply
+        </button>
+    </form>
+
+    </body>
+    </html>

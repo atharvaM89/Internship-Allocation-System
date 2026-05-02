@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Company Applications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="container mt-4">
+
+<h3>Applicants</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Student</th>
+        <th>Email</th>
+        <th>CGPA</th>
+        <th>Branch</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="a : ${applications}">
+        <td th:text="${a.student.name}"></td>
+        <td th:text="${a.student.email}"></td>
+        <td th:text="${a.student.cgpa}"></td>
+        <td th:text="${a.student.branch}"></td>
+        <td th:text="${a.status}"></td>
+        <td>
+            <form th:action="@{/company/applications/{id}/approve(id=${a.id})}" method="post" class="d-inline">
+                <button class="btn btn-success btn-sm">Approve</button>
+            </form>
+            <form th:action="@{/company/applications/{id}/reject(id=${a.id})}" method="post" class="d-inline">
+                <button class="btn btn-danger btn-sm">Reject</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<a href="/company/dashboard">Back</a>
+
+</body>
+</html>

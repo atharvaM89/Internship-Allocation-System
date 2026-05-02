@@ -1,0 +1,62 @@
+/* ================= THEME VARIABLES ================= */
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --navbar-bg: #0d6efd;
+    --navbar-text: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #eaeaea;
+    --card-bg: #1e1e1e;
+    --border-color: #2c2c2c;
+    --navbar-bg: #000000;
+    --navbar-text: #ffffff;
+}
+
+/* ================= GLOBAL ================= */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.table {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.table th,
+.table td {
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--navbar-bg) !important;
+}
+
+.navbar-brand,
+.navbar a,
+.navbar span {
+    color: var(--navbar-text) !important;
+}
+
+/* Buttons */
+.btn-outline-theme {
+    border: 1px solid var(--navbar-text);
+    color: var(--navbar-text);
+}
+
+.btn-outline-theme:hover {
+    background-color: var(--navbar-text);
+    color: var(--navbar-bg);
+}
